@@ -10,35 +10,34 @@
     <link href="https://unpkg.com/pattern.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Estimez le coût des prestations proposées par la ville de Bordeaux</h1>
     <div id="app">
-        <div>
-            <img src="images/visu.png">
-            <div class="infoBulle" v-html="html"></div>
-        </div>
-        <div class="consigne">
-            <h2>Indiquez votre revenu fiscal de référence</h2>
-            <!-- <div class="info" @mouseover="showNotice" @mouseout="hideNotice">I</div> -->
-        </div>
-        <div class="search" style="display: flex;">
-            <div class="zoneInput" style="margin-left: 16px;">
-                <input v-bind:id="id" type="number" v-model="d" placeholder="ex. 20000">
+        <h1 @click="hideNotice2" >Estimez le coût des prestations proposées par la ville de Bordeaux</h1>
+            <div @click="hideNotice2">
+                <img src="images/visu.png">
+                <div class="infoBulle" v-html="html"></div>
             </div>
-            <div v-show="d !='' " class="buttom" @click="clear"></div>
-        </div>
-        
-        <div class="consigne">
-            <h2>Nombre de parts</h2>
-            <div class="info" @mouseover="showNotice2" @mouseout="hideNotice2">i</div>
-        </div>
-        <div class="search" style="display: flex;">
-            <div class="zoneInput zoneInput2">
-                <input v-bind:id="id2" type="number" v-model="e" placeholder="ex. 2">
+            <div @click="hideNotice2" class="consigne">
+                <h2>Indiquez votre revenu fiscal de référence</h2>
+                <!-- <div class="info" @mouseover="showNotice" @mouseout="hideNotice">I</div> -->
             </div>
-            <div v-show="e !='' " class="buttom" @click="clear2"></div>
-        </div>
+            <div @click="hideNotice2" class="search" style="display:flex;justify-content: center;">
+                <div class="zoneInput">
+                    <input v-bind:id="id" type="number" v-model="d" placeholder="ex. 20000">
+                    <div v-show="d !='' " class="buttom" @click="clear"></div>
+                </div>
+            </div>
+            <div class="consigne">
+                <h2 @click="hideNotice2">Nombre de parts</h2>
+                <div class="info" @click="showNotice2">i</div>
+            </div>
+            <div @click="hideNotice2" class="search" style="display: flex;justify-content: center;">
+                <div class="zoneInput">
+                    <input v-bind:id="id2" type="number" v-model="e" placeholder="ex. 2">
+                    <div v-show="e !='' " class="buttom" @click="clear2"></div>
+                </div>
+            </div>
         <p>Prix unitaire du repas qui vous sera désormais facturé à compter du 1<sup>er</sup> janvier 2023</p>
-        <h1 class='calcul'>Pause du midi :<br>{{calculQF}} €<br>par enfant</h1>
+        <h1 @click="hideNotice2" class='calcul'>Pause du midi :<br>{{calculQF}} €<br>par enfant</h1>
     </div>
     <hr>
     <footer></footer>
@@ -50,7 +49,8 @@
                     e: '',
                     id: 'ref',
                     id2: 'ref2',
-                    html:''
+                    html:'',
+                    xy:''
                 }
             },
             computed:{
@@ -78,6 +78,9 @@
                 }
             },
             methods:{
+                boite(ev){
+                    this.xy = 'x = ' + ev.offsetX +  'y = ' + ev.offsetY;
+                },
                 clear(){
                     this.d = ''; 
                 },

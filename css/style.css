@@ -32,18 +32,22 @@ h1,h2,p,.calcul{
     font-family: 'Oswald', sans-serif;
     color: #145cb2;
 }
+input[type="number" i] {
+    padding: 9px 0px 3px 0px;
+}
 input{
     border-radius: 5px;
     border-color: white;
-    font-size: 1.5em;
+    font-size: 1.4em;
     text-align: center;
     width: 150px;
-    padding-top: 7px;
+    height: 23px;
 }
 input::placeholder {
     color: rgb(153, 153, 153);
-    font-size: 1em;
+    /* font-size: 1.4em; */
     font-style: italic;
+    line-height: 20px;
   }
 img{
     width:80%;
@@ -57,7 +61,7 @@ li{
     padding: 10px;
     text-align: left;
     font-style: italic;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 p{
     margin-top: 3px;
@@ -95,24 +99,25 @@ footer{
     padding: 10px 10px;
     border-radius: 5px;
     margin-bottom: 10px;
+    height: 40px;
 }
 .zoneInput2{
     margin-left: 16px;
 }
 .buttom{
-    width: 27px;
-    height: 23px;
+    width: 29px;
+    height: 29px;
     background-color: white;
     cursor: pointer;
     background-image: url(../images/supp.png);
+    object-position: 50% 50%;
     position: relative;
-    left: -41px;
-    top: 18px;
-    z-index: 1;
+    top: -32px;
+    width: 29px;
+    left: 124px;
 }
 .search{
-    width: 225px;
-    /* height: 70px; */
+    height: 70px;
     margin: 0px auto;
 }
 .info{
@@ -139,17 +144,34 @@ footer{
     align-items: center;
 }
 .infoBulle{
-    background-color: rgb(255,255,255,0.9);
-    color: black;
+    background-color: #005CB2;
+    color: white;
     position: absolute;
     top: 60%;
     z-index: 1;
-    width: 100%;
+    width: 70%;
     margin: 0px auto;
+    cursor: pointer;
+    left: 15%;
 }
 
 @media only screen and (max-width: 450px)  {
     .infoBulle{
         top: 43%;
+    }
+    input[type="number" i] {
+        padding: 5px 0px 3px 0px;
+    }
+    input{
+        height: 27px;
+    }
+    .buttom{
+       top: -32px;
+    }
+    .infoBulle{
+        top: 43%;
+        z-index: 1;
+        width: 90%;
+        left: 5%;
     }
   }
