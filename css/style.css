@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
+header{
+	text-align: center;
+}
+
+body{
+	font-family: 'Roboto', sans-serif;
+	text-align: center;
+  	margin: 0 auto; 
+}
+
+/*////////////////////// GENERIQUE //////////////////////*/
+h1{
+    font-size: 2em;
+	font-weight:inherit;
+	margin-bottom: 25px;
+	margin: 0 auto;
+    line-height: 1.2em;
+}
+h2{
+    font-family: 'Oswald', sans-serif;
+    color: #145cb2;
+    font-size: 1.4em;
+	font-weight:inherit;
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+h1,h2,p,.calcul{
+    font-family: 'Oswald', sans-serif;
+    color: #145cb2;
+}
+input{
+    border-radius: 5px;
+    border-color: white;
+    font-size: 1.5em;
+    text-align: center;
+    width: 150px;
+    padding-top: 7px;
+}
+input::placeholder {
+    color: rgb(153, 153, 153);
+    font-size: 1em;
+    font-style: italic;
+  }
+img{
+    width:80%;
+}
+legend{
+    font-size: 0.8em;
+    font-style: italic;
+    color:grey;
+}
+li{
+    padding: 10px;
+    text-align: left;
+    font-style: italic;
+    font-size: 1.2em;
+}
+p{
+    margin-top: 3px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 1em;
+}
+footer{
+    width:100%;
+    height: 15px;
+    background-image:url(../images/signature.svg);
+    background-repeat:no-repeat;
+    background-position:center;
+    margin-top: 10px;
+ }
+ hr{
+	margin-top: 11px;
+	margin-bottom: 3px;
+	color: white;
+	width: 200px;
+}
+.calcul{
+    background-color: #005CB2;
+    line-height: 50px;
+    width: 300px;
+    padding: 0px 10px;
+    border-radius: 5px;
+    color: white;
+    /* margin-top: 40px; */
+}
+.zoneInput{
+    background-color: #005cb236;
+    border: 2px solid #005CB2;
+    padding: 10px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.zoneInput2{
+    margin-left: 16px;
+}
+.buttom{
+    width: 27px;
+    height: 23px;
+    background-color: white;
+    cursor: pointer;
+    background-image: url(../images/supp.png);
+    position: relative;
+    left: -41px;
+    top: 18px;
+    z-index: 1;
+}
+.search{
+    width: 225px;
+    /* height: 70px; */
+    margin: 0px auto;
+}
+.info{
+    font-family:DM;
+    font-style: italic;
+    font-size: 1.3em;
+    background-color: #005CB2;
+    color: white;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    padding: 2px 2px;
+    border-radius: 50%;
+    line-height: 20px;
+    margin-left: 4px;
+    margin-top: 9px;
+    cursor : pointer;
+}
+.consigne{
+    display: flex;
+    margin: 0px auto;
+    line-height: 23px;
+    justify-content: center;
+    align-items: center;
+}
+.infoBulle{
+    background-color: rgb(255,255,255,0.9);
+    color: black;
+    position: absolute;
+    top: 60%;
+    z-index: 1;
+    width: 100%;
+    margin: 0px auto;
+}
+
+@media only screen and (max-width: 450px)  {
+    .infoBulle{
+        top: 43%;
+    }
+  }

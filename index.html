@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sud Ouest - Infographie - Simulateur taxe foncière</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://unpkg.com/pattern.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Estimez le coût des prestations proposées par la ville de Bordeaux</h1>
+    <div id="app">
+        <div>
+            <img src="images/visu.png">
+            <div class="infoBulle" v-html="html"></div>
+        </div>
+        <div class="consigne">
+            <h2>Indiquez votre revenu fiscal de référence</h2>
+            <!-- <div class="info" @mouseover="showNotice" @mouseout="hideNotice">I</div> -->
+        </div>
+        <div class="search" style="display: flex;">
+            <div class="zoneInput" style="margin-left: 16px;">
+                <input v-bind:id="id" type="number" v-model="d" placeholder="ex. 20000">
+            </div>
+            <div v-show="d !='' " class="buttom" @click="clear"></div>
+        </div>
+        
+        <div class="consigne">
+            <h2>Nombre de parts</h2>
+            <div class="info" @mouseover="showNotice2" @mouseout="hideNotice2">i</div>
+        </div>
+        <div class="search" style="display: flex;">
+            <div class="zoneInput zoneInput2">
+                <input v-bind:id="id2" type="number" v-model="e" placeholder="ex. 2">
+            </div>
+            <div v-show="e !='' " class="buttom" @click="clear2"></div>
+        </div>
+        <p>Prix unitaire du repas qui vous sera désormais facturé à compter du 1<sup>er</sup> janvier 2023</p>
+        <h1 class='calcul'>Pause du midi :<br>{{calculQF}} €<br>par enfant</h1>
+    </div>
+    <hr>
+    <footer></footer>
+    <script>
+        app = Vue.createApp({
+            data(){
+                return{
+                    d: '',
+                    e: '',
+                    id: 'ref',
+                    id2: 'ref2',
+                    html:''
+                }
+            },
+            computed:{
+                calcul(){
+                    if (this.d == 0) {
+                        toto = '-- ';
+                        return toto;    
+                    }
+                    else{
+                        toto = this.d/12
+                        return toto
+                    }  
+                },
+                calculQF(){
+                    if (this.e == 0) {
+                        ff = '-- ';
+                        return ff;    
+                    }
+                    else{
+                        tata = (this.d/12)/(this.e)
+                        ff = (tata*tata)*0.0000003555+0.0019*tata+0.45;
+                        return Math.floor(ff * 100) / 100;
+                        // return ff;
+                    }  
+                }
+            },
+            methods:{
+                clear(){
+                    this.d = ''; 
+                },
+                clear2(){
+                    this.e = ''; 
+                },
+                showNotice(){
+                    this. html = '<p> tototo </p>'+
+                                '<img src="images/base.jpeg">'; 
+                },
+                hideNotice(){
+                    this. html = ''; 
+                },
+                showNotice2(){
+                    this. html = '<li>Si votre quotient familal est compris entre de 0 et 145, le tarif minimum est facturé (0,45€).</li>'+
+                                '<li>Si votre quotient familial est supérieur ou égal à 2243, le tarif maximum est facturé (6,50€).</li>'; 
+                }
+                ,
+                hideNotice2(){
+                    this. html = ''; 
+                }                    
+            }
+        });
+       app.mount('#app');
+       
+    </script>
+</body>
+</html>
