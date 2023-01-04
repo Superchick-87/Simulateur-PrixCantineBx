@@ -55,7 +55,15 @@ img{
 legend{
     font-size: 0.8em;
     font-style: italic;
-    color:grey;
+    color: grey;
+    margin: 0px auto;
+}
+.interLegend1{
+    line-height: 0.5em;
+    margin-bottom: 10px;
+}
+.interLegend2{
+    line-height: 1.2em;
 }
 li{
     padding: 10px;
@@ -79,10 +87,10 @@ footer{
     margin-top: 10px;
  }
  hr{
-	margin-top: 11px;
-	margin-bottom: 3px;
-	color: white;
-	width: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    width: 200px;
 }
 .calcul{
     background-color: #005CB2;
@@ -91,7 +99,7 @@ footer{
     padding: 0px 10px;
     border-radius: 5px;
     color: white;
-    /* margin-top: 40px; */
+    margin-bottom: 10px;
 }
 .zoneInput{
     background-color: #005cb236;
@@ -147,12 +155,13 @@ footer{
     background-color: #005CB2;
     color: white;
     position: absolute;
-    top: 60%;
+    top: 18%;
     z-index: 1;
     width: 70%;
     margin: 0px auto;
     cursor: pointer;
     left: 15%;
+    border-radius: 7px;
 }
 
 @media only screen and (max-width: 450px)  {
@@ -169,7 +178,7 @@ footer{
        top: -32px;
     }
     .infoBulle{
-        top: 43%;
+        top: 16%;
         z-index: 1;
         width: 90%;
         left: 5%;

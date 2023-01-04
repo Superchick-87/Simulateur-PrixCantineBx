@@ -11,13 +11,14 @@
 </head>
 <body>
     <div id="app">
-        <h1 @click="hideNotice2" >Estimez le coût des prestations proposées par la ville de Bordeaux</h1>
+        <h1 @click="hideNotice2">Calculez le nouveau prix</br>des repas à la cantine</h1>
             <div @click="hideNotice2">
-                <img src="images/visu.png">
+                <!-- <img src="images/visu.png"> -->
                 <div class="infoBulle" v-html="html"></div>
             </div>
-            <div @click="hideNotice2" class="consigne">
+            <div @click="hideNotice2">
                 <h2>Indiquez votre revenu fiscal de référence</h2>
+                <legend class="interLegend1">(Mentionné sur votre avis d'impôt sur les revenus)</legend>
                 <!-- <div class="info" @mouseover="showNotice" @mouseout="hideNotice">I</div> -->
             </div>
             <div @click="hideNotice2" class="search" style="display:flex;justify-content: center;">
@@ -27,8 +28,8 @@
                 </div>
             </div>
             <div class="consigne">
-                <h2 @click="hideNotice2">Nombre de parts</h2>
-                <div class="info" @click="showNotice2">i</div>
+                <h2 @click="hideNotice2">Nombre de parts fiscales</h2>
+                <div id="info" class="info" @click="showNotice2">i</div>
             </div>
             <div @click="hideNotice2" class="search" style="display: flex;justify-content: center;">
                 <div class="zoneInput">
@@ -36,9 +37,11 @@
                     <div v-show="e !='' " class="buttom" @click="clear2"></div>
                 </div>
             </div>
-        <p>Prix unitaire du repas qui vous sera désormais facturé à compter du 1<sup>er</sup> janvier 2023</p>
+        <p>Prix unitaire du repas qui vous sera désormais facturé</br>à compter du 1<sup>er</sup> janvier 2023</p>
         <h1 @click="hideNotice2" class='calcul'>Pause du midi :<br>{{calculQF}} €<br>par enfant</h1>
     </div>
+    <hr>
+    <legend class="interLegend2">Les informations renseignées dans la calculatrice de prix</br>des repas ne sont pas enregistrées ni transmises à un serveur.</br>Le calcul s'effectue directement dans votre navigateur</br>et les données ne sont pas stockées.</legend>
     <hr>
     <footer></footer>
     <script>
@@ -72,8 +75,13 @@
                     else{
                         tata = (this.d/12)/(this.e)
                         ff = (tata*tata)*0.0000003555+0.0019*tata+0.45;
-                        return Math.floor(ff * 100) / 100;
-                        // return ff;
+                        if (ff < 6.50) {
+                            return Math.floor(ff * 100) / 100;
+                        }
+                        if (ff > 6.50) {
+                            // return Math.floor(6.5 * 100) / 100;
+                            return '6.50';
+                        }
                     }  
                 }
             },
@@ -95,7 +103,7 @@
                     this. html = ''; 
                 },
                 showNotice2(){
-                    this. html = '<li>Si votre quotient familal est compris entre de 0 et 145, le tarif minimum est facturé (0,45€).</li>'+
+                    this. html = '<li>Si votre quotient familal est compris entre 0 et 145, le tarif minimum est facturé (0,45€).</li>'+
                                 '<li>Si votre quotient familial est supérieur ou égal à 2243, le tarif maximum est facturé (6,50€).</li>'; 
                 }
                 ,
