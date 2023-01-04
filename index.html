@@ -76,14 +76,34 @@
                         tata = (this.d/12)/(this.e)
                         ff = (tata*tata)*0.0000003555+0.0019*tata+0.45;
                         if (ff < 6.50) {
-                            return Math.floor(ff * 100) / 100;
+                            return Math.round(ff * 100) / 100;
+                            // return ff;
                         }
-                        if (ff > 6.50) {
+                        if (ff >= 6.50) {
                             // return Math.floor(6.5 * 100) / 100;
                             return '6.50';
                         }
                     }  
                 }
+                // ,
+                // calculTest(){
+                //     if (this.e == 0) {
+                //         ff = '-- ';
+                //         return ff;    
+                //     }
+                //     else{
+                //         tata = (this.d/12)/(this.e)
+                //         ff = (tata*tata)*0.0000003555+0.0019*tata+0.45;
+                //         if (ff < 6.50) {
+                //             // return Math.floor(ff * 100) / 100;
+                //             return ff;
+                //         }
+                //         if (ff > 6.50) {
+                //             // return Math.floor(6.5 * 100) / 100;
+                //             return '6.50';
+                //         }
+                //     }  
+                // }
             },
             methods:{
                 boite(ev){
